@@ -40,5 +40,17 @@ void consumeWithTimeout(FibonacciGenerator& generator, int timeoutSeconds) {
             << " | Value: " << value
             << " | Sum: " << sum
             << " | Average: " << average << endl;
+        this_thread::sleep_for(chrono::seconds(1));
     }
+}
+int main() {
+    FibonacciGenerator fib;
+
+    int timeout;
+    cout << "Enter timeout in seconds: ";
+    cin >> timeout;
+
+    consumeWithTimeout(fib, timeout);
+
+    return 0;
 }
